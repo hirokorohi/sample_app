@@ -1,8 +1,8 @@
 class ListsController < ApplicationController
   def new
-    @list = List.new 
+    @list = List.new
   end
-  
+
   def create
     # １.&2. データを受け取り新規登録するためのインスタンス作成
     list = List.new(list_params)
@@ -11,8 +11,11 @@ class ListsController < ApplicationController
     # 4. トップ画面へリダイレクト
     redirect_to '/top'
   end
- 
-  
+
+  def index
+   @list = List.all
+  end
+
   private
   # ストロングパラメータ
   def list_params
